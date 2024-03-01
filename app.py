@@ -20,8 +20,11 @@ def get():
 def createUser():
     try:
         ytlink = request.json["ytlink"]
-        resp = getResp(ytlink)
-        return jsonify({"msg": resp, "success": True})
+        resp,target_lang = getResp(ytlink)
+        if(resp!='na'):
+            return jsonify({"msg": resp, "success": True,'target_lang':target_lang})
+        else:
+            return jsonify({'msg':'Opps!!! Either link is incorrect or transcript is disable.','success':'False'})
     except:
         return jsonify({"msg": "No Transcript Available", "success": False})
 
