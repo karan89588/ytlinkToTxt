@@ -5,7 +5,7 @@ def getResp(video_id):
     l=''
     try:
       l=YouTubeTranscriptApi.list_transcripts(video_id)
-      #print('yes')
+      print('yes')
       list_lang=[transcript.language_code for transcript in l]
       lang='en'
       target_lang='en'
@@ -22,8 +22,8 @@ def getResp(video_id):
         text_list=transcript.fetch()
         text_list_1=[t['text'] for t in text_list]
         text=' '.join(text_list_1)
-      #print('target_lang ',target_lang)
-      #print('text ',text)
+      print('target_lang ',target_lang)
+      print('text ',text)
     except:
       print('OOps!!! Either link is incorrect or transcript is disable.')
       return ('na','na')
