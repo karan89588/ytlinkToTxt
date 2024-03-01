@@ -4,7 +4,7 @@ from youtube_transcript_api import YouTubeTranscriptApi as yta
 def getResp(video_id):
     l=''
     try:
-      l=YouTubeTranscriptApi.list_transcripts(video_id)
+      l=yta.list_transcripts(video_id)
       print('yes')
       list_lang=[transcript.language_code for transcript in l]
       lang='en'
